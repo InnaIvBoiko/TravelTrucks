@@ -8,6 +8,11 @@
   background-color: #f7f7f7;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  height: 72px;
+}
 .navMenu {
   display: flex;
   gap: 32px;

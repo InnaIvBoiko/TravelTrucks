@@ -24,8 +24,7 @@ export default function Catalog() {
 
     return (
         <>
-            <h2>Catalog</h2>
-            {loading && <b>Loading movies...</b>}
+            {loading && <b>Loading campers...</b>}
             <CampersList campers={campers} />
         </>
     )

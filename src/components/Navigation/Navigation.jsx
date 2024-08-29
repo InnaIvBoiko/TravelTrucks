@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import Logo from '../Logo/Logo.jsx';
 import css from './Navigation.module.css';
 
 export default function Navigation() {
     return (
         <nav className={css.container}>
-            <Link to={'/'}>
-                <img src="/public/Logo.png" alt="TravelTrucks" />
+            <Link to={'/'} className={css.logo}>
+                <Logo />
             </Link>
             <ul className={css.navMenu}>
                 <li>
