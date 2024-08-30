@@ -42,6 +42,7 @@ export default function BookForm() {
 
     const handleSubmit = (values, actions) => {
         console.log(values);
+        notify();
         actions.resetForm();
     };
     
@@ -107,7 +108,7 @@ export default function BookForm() {
                             name='comment'
                             component='span' />
                     </label>
-                    <button className={css.btn} type="submit" onClick={notify}>Send</button>
+                    <button className={css.btn} type="submit" >Send</button>
                 </Form>
             </Formik>
             <Toaster

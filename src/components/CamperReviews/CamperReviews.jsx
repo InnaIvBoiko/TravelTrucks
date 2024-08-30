@@ -1,4 +1,5 @@
-import StarIcon from '../StarIcon/StarIcon';
+import StarIconDef from '../Icons/StarIconDef/StarIconDef.jsx';
+import StarIcon from '../Icons/StarIcon/StarIcon.jsx';
 import css from './CamperReviews.module.css';
 
 export default function CamperReviews({ camper: {
@@ -12,10 +13,12 @@ export default function CamperReviews({ camper: {
                         <div className={css.circle}>{review.reviewer_name.charAt(0)}</div>
                         <div>
                             <p>{review.reviewer_name}</p>
-                            {/* <span>{review.reviewer_rating}</span> */}
                             <span>
                                 {Array.from({ length: review.reviewer_rating }, (_, i) => (
                                     <StarIcon key={i} />
+                                ))}
+                                {Array.from({ length: 5 - review.reviewer_rating }, (_, i) => (
+                                    <StarIconDef key={i} />
                                 ))}
                             </span>
                         </div>
@@ -23,8 +26,6 @@ export default function CamperReviews({ camper: {
                     <p className={css.comment}>{review.comment}</p>
                 </li>
             ))}
-        
-        
         </ul>
     );
 }

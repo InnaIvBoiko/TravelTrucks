@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getCamperById } from "../../campers-api";
 import CamperData from "../../components/CamperData/CamperData";
 import BookForm from "../../components/BookForm/BookForm";
+import css from './CamperDetailsPage.module.css';
 
 export default function CamperDetailsPage() {
     const { id } = useParams();
@@ -33,12 +34,18 @@ export default function CamperDetailsPage() {
     };
 
     return (
-        <>
+        <section className={css.container}>
             {loading && <b>Loading details of camper...</b>}
-            <CamperData camper={camperData}/>
-            <CamperFeatures camper={camperData}/>
-            <CamperReviews camper={camperData} />
-            <BookForm />
-        </>
+            <CamperData camper={camperData} />
+            <div className={css.switch}>
+                <h2 className={css.switchItem}>Features</h2>
+                <h2 className={css.switchItem}>Reviews</h2>
+            </div>
+            <div className={css.info}> 
+                {/* <CamperFeatures camper={camperData}/> */}
+                <CamperReviews camper={camperData} />
+                <BookForm />
+            </div>
+        </section>
    )
 }

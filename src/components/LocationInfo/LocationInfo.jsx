@@ -1,4 +1,4 @@
-import StarIcon from '../StarIcon/StarIcon';
+import StarIcon from '../Icons/StarIcon/StarIcon.jsx';
 import css from './LocationInfo.module.css';
 
 export default function LocationInfo({ rating, reviews, location }) {
