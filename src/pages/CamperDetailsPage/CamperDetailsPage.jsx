@@ -4,6 +4,7 @@ import CamperReviews from "../../components/CamperReviews/CamperReviews";
 import { useEffect, useState } from "react";
 import { getCamperById } from "../../campers-api";
 import CamperData from "../../components/CamperData/CamperData";
+import BookForm from "../../components/BookForm/BookForm";
 
 export default function CamperDetailsPage() {
     const { id } = useParams();
@@ -36,7 +37,8 @@ export default function CamperDetailsPage() {
             {loading && <b>Loading details of camper...</b>}
             <CamperData camper={camperData}/>
             <CamperFeatures camper={camperData}/>
-            <CamperReviews camper={camperData}/>
+            <CamperReviews camper={camperData} />
+            <BookForm />
         </>
    )
 }
