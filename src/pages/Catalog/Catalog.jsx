@@ -4,28 +4,32 @@ import CampersList from '../../components/CampersList/CampersList.jsx';
 
 export default function Catalog() {
     const [campers, setCampers] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [visibleItem, setVisibleItem] = useState(4);
+
+    const handleLoadMore = () => {
+        setVisibleItem(prevItem => prevItem + 4);
+    };
 
     useEffect(() => {
         async function fetchCampers() {
             try {
-                setLoading(true);
+                setIsLoading(true);
                 const data = await getCampers();
                 setCampers(data);
             } catch (error) {
                 console.log(error);
             } finally {
-                setLoading(false);
+                setIsLoading(false);
             }
         }
         fetchCampers();
     }, []);
 
-
     return (
         <>
-            {loading && <b>Loading campers...</b>}
-            <CampersList campers={campers} />
+            {isLoading && <b>Loading campers...</b>}
+            <CampersList campers={campers} loadMore={handleLoadMore} visibleItem={ visibleItem} />
         </>
     )
 }
