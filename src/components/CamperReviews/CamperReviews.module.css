@@ -1,0 +1,39 @@
+.reviewsList {
+  width: 631px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  padding-top: 12px;
+  margin-left: 64px;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  background-color: #f2f4f7;
+  color: #e44848;
+}
+
+.name {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.comment {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #475467;
+  margin-top: 16px;
+}

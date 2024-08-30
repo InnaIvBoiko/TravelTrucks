@@ -1,11 +1,12 @@
 .list {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
 }
 
 .item {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
   border-radius: 100px;
   padding: 12px 18px;

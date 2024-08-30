@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.iconWrap {
+  margin-right: 4px;
+  line-height: 0%;
+}
+
+.icon {
+  line-height: 0%;
+}
