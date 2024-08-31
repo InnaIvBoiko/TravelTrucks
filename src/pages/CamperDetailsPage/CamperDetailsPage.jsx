@@ -11,6 +11,7 @@ export default function CamperDetailsPage() {
     const { id } = useParams();
     const [camperData, setCamperData] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [activeTab, setActiveTab] = useState('features');
 
     useEffect(() => {
         if (!id) return;
@@ -38,12 +39,23 @@ export default function CamperDetailsPage() {
             {loading && <b>Loading details of camper...</b>}
             <CamperData camper={camperData} />
             <div className={css.switch}>
-                <h2 className={css.switchItem}>Features</h2>
-                <h2 className={css.switchItem}>Reviews</h2>
+                <h2
+                    className={css.switchItem}
+                    onClick={() => setActiveTab('features')}
+                    style={{ borderBottom: activeTab === 'features' ? '5px solid #e44848' : 'none' }}
+                >
+                    Features
+                </h2>
+                <h2
+                    className={css.switchItem}
+                    onClick={() => setActiveTab('reviews')}
+                    style={{ borderBottom: activeTab === 'reviews' ? '5px solid #e44848' : 'none' }}
+                >
+                    Reviews
+                </h2>
             </div>
             <div className={css.info}> 
-                {/* <CamperFeatures camper={camperData}/> */}
-                <CamperReviews camper={camperData} />
+                {activeTab === 'features' ? (<CamperFeatures camper={camperData} />) : (<CamperReviews camper={camperData} />)}
                 <BookForm />
             </div>
         </section>

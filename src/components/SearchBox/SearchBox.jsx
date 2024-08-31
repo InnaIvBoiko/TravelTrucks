@@ -1,7 +1,7 @@
 // import { useDispatch, useSelector } from 'react-redux';
 import Button from '../Button/Button';
 import EquipmentFilterCards from '../EquipmentFilterCards/EquipmentFilterCards';
-import MapIcon from '../Icons/StarIcon/MapIcon/MapIcon';
+import MapIcon from '../Icons/MapIcon/MapIcon';
 import TypeFilterCards from '../TypeFilterCards/TypeFilterCards';
 // import { selectLocationFilter } from '../../redux/locationFiltersSlice';
 import css from './SearchBox.module.css';

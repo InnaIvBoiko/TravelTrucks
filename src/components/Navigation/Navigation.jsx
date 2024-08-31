@@ -1,23 +1,28 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Logo from '../Logo/Logo.jsx';
 import css from './Navigation.module.css';
+import clsx from 'clsx';
+
+const getNavLinkClass = ({ isActive }) => {
+  return clsx(css.navMenuItem, isActive && css.active);
+};
 
 export default function Navigation() {
     return (
         <nav className={css.container}>
-            <Link to={'/'} className={css.logo}>
+            <NavLink to={'/'} className={css.logo}>
                 <Logo />
-            </Link>
+            </NavLink>
             <ul className={css.navMenu}>
                 <li>
-                    <Link to={'/'} className={css.navMenuItem}>
+                    <NavLink to={'/'} className={getNavLinkClass}>
                     Home
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to={'/catalog'} className={css.navMenuItem}>
+                    <NavLink to={'/catalog'} className={getNavLinkClass}>
                     Catalog
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
         </nav>

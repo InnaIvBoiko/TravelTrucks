@@ -1,4 +1,4 @@
-import MapIcon from '../Icons/StarIcon/MapIcon/MapIcon.jsx';
+import MapIcon from '../Icons/MapIcon/MapIcon.jsx';
 import StarIcon from '../Icons/StarIcon/StarIcon.jsx';
 import css from './LocationInfo.module.css';
 
