@@ -54,6 +54,7 @@
   width: 166px;
   height: 56px;
   background-color: #e44848;
+  color: #fff;
   transition: background-color 500ms linear;
   margin-top: 10px;
 }
