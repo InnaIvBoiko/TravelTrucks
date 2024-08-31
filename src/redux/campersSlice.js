@@ -39,4 +39,3 @@ export const campersReducer = campersSlice.reducer;
 // }
 // );
 export const selectFilteredCampers = createSelector(selectCampers);
-
