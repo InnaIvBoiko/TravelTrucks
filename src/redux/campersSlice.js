@@ -1,6 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { createSelector } from '@reduxjs/toolkit';
-// import { selectLocationFilter } from './locationFiltersSlice';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { fetchCampers } from '../campers-api';
 
 const campersInitialState = {
@@ -31,11 +29,28 @@ const campersSlice = createSlice({
 });
 
 export const selectCampers = state => state.campers.items;
+
+export const selectFilteredCampers = createSelector(
+    [selectCampers, (state) => state.filters],
+    (campers, filters) => {
+        return campers.filter((camper) => {
+            const matchesLocation = camper.location.toLowerCase().includes(filters.location.toLowerCase());
+            const matchesAC = filters.AC ? camper.AC === filters.AC : true;
+            const matchesAutomatic = filters.automatic ? camper.automatic === filters.automatic : true;
+            const matchesKitchen = filters.kitchen ? camper.kitchen === filters.kitchen : true;
+            const matchesTV = filters.TV ? camper.TV === filters.TV : true;
+            const matchesBathroom = filters.bathroom ? camper.bathroom === filters.bathroom : true;
+            const matchesForm = filters.form ? camper.form === filters.form : true;
+
+            return matchesLocation &&
+                   matchesAC &&
+                   matchesAutomatic &&
+                   matchesKitchen &&
+                   matchesTV &&
+                   matchesBathroom &&
+                   matchesForm;
+        });
+    }
+);
+
 export const campersReducer = campersSlice.reducer;
-// export const selectFilteredCampers = createSelector([selectCampers, selectLocationFilter], (campers, locationFilters) => {
-//   return campers.locationFilters(({ location }) =>
-//     location.toLowerCase().includes(locationFilters.toLowerCase())
-//   );
-// }
-// );
-export const selectFilteredCampers = createSelector(selectCampers);

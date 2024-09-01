@@ -108,7 +108,7 @@ export default function BookForm() {
                             name='comment'
                             component='span' />
                     </label>
-                    <button className={css.btn} type="submit" >Send</button>
+                    <button className={css.btn} type='submit' >Send</button>
                 </Form>
             </Formik>
             <Toaster
