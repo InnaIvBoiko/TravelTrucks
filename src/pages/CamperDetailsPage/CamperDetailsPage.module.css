@@ -23,3 +23,29 @@
   display: flex;
   padding-top: 40px;
 }
+
+@media screen and (min-resolution: 192dpi) and (max-width: 1439px),
+  screen and (min-resolution: 2dppx) and (max-width: 1439px),
+  screen and (min-device-pixel-ratio: 2) and (max-width: 1439px) {
+  .info {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px),
+  screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
+  .container {
+    padding: 0 24px;
+    margin: 24px auto 40px auto;
+  }
+}
+
+@media screen and (min-resolution: 192dpi) and (max-width: 374px),
+  screen and (min-resolution: 2dppx) and (max-width: 374px),
+  screen and (min-device-pixel-ratio: 2) and (max-width: 374px) {
+  .container {
+    padding: 0 14px;
+    margin: 20px auto 24px auto;
+  }
+}

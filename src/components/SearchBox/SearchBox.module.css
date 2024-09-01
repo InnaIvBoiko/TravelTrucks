@@ -91,6 +91,7 @@ input[type='checkbox'],
 input[type='radio'] {
   display: none;
 }
+
 .labelBtn {
   max-width: 112px;
   height: 96px;
@@ -117,4 +118,33 @@ input[type='radio']:checked + .labelBtn {
 .buttons {
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px),
+  screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
+  .wrap {
+    width: 100%;
+  }
+  .location {
+    border-radius: 12px;
+    padding: 18px 18px 18px 46px;
+    width: 100%;
+  }
+
+  .line {
+    width: 100%;
+  }
+
+  .list {
+    width: 100%;
+  }
+
+  .type {
+    width: 100%;
+  }
+  .buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
