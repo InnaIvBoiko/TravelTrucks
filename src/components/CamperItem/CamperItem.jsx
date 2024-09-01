@@ -1,4 +1,3 @@
-// import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from "../Button/Button.jsx";
 import Categories from '../Categories/Categories.jsx';
@@ -34,26 +33,6 @@ export default function CamperItem({ camper: {
     const handleToggleFavorite = () => {
         dispatch(toggleFavorite(id));
     };
-
-    // const [isFavorited, setIsFavorited] = useState(true);
-
-    // useEffect(() => {
-    //     const favorites = JSON.parse(localStorage.getItem('favoriteCampers')) || [];
-    //     setIsFavorited(favorites.includes(id));
-    // }, [id]);
-
-    //  const toggleFavorite = () => {
-    //     const favorites = JSON.parse(localStorage.getItem('favoriteCampers')) || [];
-    //      if (isFavorited) {
-    //           const updatedFavorites = favorites.filter(favId => favId !== id);
-    //         localStorage.setItem('favoriteCampers', JSON.stringify(updatedFavorites));
-    //     } else {
-    //         favorites.push(id);
-    //         localStorage.setItem('favoriteCampers', JSON.stringify(favorites));
-    //     }
-
-    //     setIsFavorited(!isFavorited);
-    // };
             
     return (
         <div className={css.card}>
