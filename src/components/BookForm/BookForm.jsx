@@ -1,7 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { toast,  Toaster } from 'react-hot-toast';
-import { useId } from 'react';
-import * as Yup from "yup";
+import { useId, useState } from 'react';
+import * as Yup from 'yup';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import css from './BookForm.module.css';
 
 
@@ -17,12 +19,7 @@ const notify = () => toast.success('Your booking request has been successfully s
 const BookingSchema = Yup.object().shape({
     username: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Name is required'),
     email: Yup.string().email('Must be a valid email!').required('Email is required'),
-    bookingDate: Yup.string()
-      .required('Booking date is required')
-    .matches(
-      /^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$/,
-      'Date must be in MM/DD/YYYY format'
-    ),
+    bookingDate: Yup.date().required('Booking date is required'),
     comment: Yup.string().min(3, 'Too short').max(256, 'Too long').required('Comment is required'),
 });
 
@@ -35,6 +32,8 @@ const initialValues = {
 };
 
 export default function BookForm() {
+    const [startDate, setStartDate] = useState(null);
+
     const nameFieldId = useId();
     const emailFieldId = useId();
     const bookingDateFieldId = useId();
@@ -44,6 +43,7 @@ export default function BookForm() {
         console.log(values);
         notify();
         actions.resetForm();
+        setStartDate(null);
     };
     
     return (
@@ -55,6 +55,7 @@ export default function BookForm() {
                 onSubmit={handleSubmit}
                 validationSchema={BookingSchema}
             >
+                 {({ setFieldValue }) => (
                 <Form className={css.form}>
                     <label htmlFor={nameFieldId}>
                         <Field
@@ -83,18 +84,19 @@ export default function BookForm() {
                             component='span' />
                     </label>
                     <label htmlFor={bookingDateFieldId}>
-                        <Field
-                            className={css.field}
-                            type='text'
-                            name='bookingDate'
-                            id={bookingDateFieldId}
-                            placeholder='Booking date*'
-                        />
-                        <ErrorMessage
-                            className={css.error}
-                            name='bookingDate'
-                            component='span' />
-                    </label>
+                            <DatePicker
+                                className={css.field}
+                                selected={startDate}
+                                onChange={(date) => {
+                                    setStartDate(date);
+                                    setFieldValue('bookingDate', date); 
+                                }}
+                                placeholderText='Booking date*'
+                                dateFormat='dd.MM.yyyy'
+                                onFocus={() => setStartDate(startDate)}
+                            />
+                            <ErrorMessage className={css.error} name='bookingDate' component='span' />
+                        </label>
                      <label htmlFor={commentFieldId}>
                         <Field
                             className={css.comment}
@@ -109,7 +111,8 @@ export default function BookForm() {
                             component='span' />
                     </label>
                     <button className={css.btn} type='submit' >Send</button>
-                </Form>
+                    </Form>
+                      )}
             </Formik>
             <Toaster
                 position='bottom-right'

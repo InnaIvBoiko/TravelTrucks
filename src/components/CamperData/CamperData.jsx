@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import LocationInfo from '../LocationInfo/LocationInfo';
 import css from './CamperData.module.css';
 
@@ -10,6 +12,10 @@ export default function CamperData({ camper: {
     location,
     description,
 } }) {
+    const [visibleItem, setVisibleItem] = useState(4);
+        const handleLoadMore = () => {
+        setVisibleItem(prevItem => prevItem + 4);
+    };
     return (
         <div className={css.wrap}>
             <div className={css.details}>
@@ -22,12 +28,13 @@ export default function CamperData({ camper: {
                 <p className={css.price}>€<span>{price}</span>.00</p>
             </div>
             <ul className={css.gallery}>
-                {gallery.map((item, index) => (
+                {gallery.slice(0, visibleItem).map((item, index) => (
                     <li key={index}>
                         <img className={css.photo} src={item.thumb} alt={name} />
                     </li>
                 ))}
             </ul>
+            {visibleItem < gallery.length && <LoadMoreBtn loadMore={handleLoadMore} />}
             <p className={css.description}>{description}</p>
         </div>
     );

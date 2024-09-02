@@ -54,7 +54,7 @@ export default function SearchBox() {
                         <MapIcon />
                     </span>
                 </div>
-
+                <h3 className={css.heading}>Filters</h3>
                 <div>
                     <h2 className={css.title} >Vehicle equipment</h2>
                     <div className={css.line}></div>

@@ -31,7 +31,7 @@
 
 .field {
   border-radius: 12px;
-  padding: 18px 337px 18px 18px;
+  padding: 18px;
   width: 527px;
   height: 60px;
   background-color: #f7f7f7;
@@ -124,3 +124,18 @@
     width: 274px;
   }
 }
+
+/* .react-datepicker {
+  font-family: 'Inter', sans-serif !important;
+  color: #101828 !important;
+  background: #fff !important;
+}
+.field .react-datepicker .react-datepicker__header {
+  background: #fff !important;
+  color: #101828;
+}
+
+.react-datepicker__day--selected {
+  background: #475467 !important;
+  color: #f7f7f7;
+} */

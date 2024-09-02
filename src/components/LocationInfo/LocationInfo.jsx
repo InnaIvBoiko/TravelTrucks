@@ -7,18 +7,20 @@ export default function LocationInfo({ rating, reviews, location }) {
     
     return (
         <div className={css.row}>
-            <p className={css.text}>
+            <div className={css.wrap}>
                 <span className={css.iconWrap}>
                     <StarIcon />
                 </span>
-                {rating} ({reviewsCount} Reviews)
-            </p>
-            <p className={css.text}>
+                <p className={css.line}>
+                    {rating} ({reviewsCount} Reviews)
+                </p>
+            </div>
+            <div className={css.wrap}>
                 <span className={css.iconWrap}>
                     <MapIcon />
                 </span>
-                {location}
-            </p>
+                <p>{ location}</p>
+            </div>
         </div>
     );
 }
