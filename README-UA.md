@@ -54,8 +54,8 @@
 
 ### Дизайн
 
-Верстка для десктопної версії відповідно до макету
-https://www.figma.com/design/CKZFWA5GndLlVMwKcQjum3/Campers-(Copy)?node-id=0-1&t=rUpBYaciLRKP9XJ6-1
+Верстка для десктопної версії відповідно до макету [Figma]
+(https://www.figma.com/design/CKZFWA5GndLlVMwKcQjum3/Campers-(Copy)?node-id=0-1&t=rUpBYaciLRKP9XJ6-1)
 
 ### Розробка
 
@@ -102,8 +102,9 @@ yarn dev
 
 ### Відкриття браузера
 
-Відкрийте (http://localhost:5173) у вашому браузері, щоб переглянути проект.
+Відкрийте [localhost:5173](http://localhost:5173) у вашому браузері, щоб
+переглянути проект.
 
 ## Задеплоєний проект
 
-Проект розгорнуто на [Vercel](https://travel-trucks-liart.vercel.app/)
+Проект розгорнуто на [Vercel](https://travel-trucks-liart.vercel.app)
